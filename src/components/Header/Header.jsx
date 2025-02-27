@@ -1,9 +1,8 @@
-"use client"; // Para manejar estado en Next.js 13+
-
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Header.module.css"; // Importamos los estilos CSS
+import styles from "./Header.module.css";
 
 export default function Header() {
   const [scrolling, setScrolling] = useState(false);
@@ -22,18 +21,22 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolling ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        {/* Logo */}
-        <Link href="/">
-          <Image
-            src="/images/logo_vida_paz.png"
-            alt="Logo Congregación Vida y Paz"
-            width={scrolling ? 20 : 40}
-            height={50}
-            className={styles.logo}
-          />
-        </Link>
+        {/* Contenedor del Logo y Texto */}
+        <div className={styles.logoContainer}>
+          <Link href="/">
+            <Image
+              src="/images/logo_vida_paz.png"
+              alt="Logo Congregación Vida y Paz"
+              width={scrolling ? 20 : 40}
+              height={50}
+              className={styles.logo}
+            />
+          </Link>
+          <span className={styles.logoText}>Congregación Vida y Paz</span>{" "}
+          {/* Texto al lado del logo */}
+        </div>
 
-        {/* Menú */}
+        {/* Menú de Navegación */}
         <nav>
           <ul className={styles.navLinks}>
             <li>
@@ -47,11 +50,6 @@ export default function Header() {
             </li>
             <li>
               <Link href="/grupos">Grupos</Link>
-            </li>
-            <li>
-              <Link href="/donaciones" className={styles.donateButton}>
-                Donaciones
-              </Link>
             </li>
           </ul>
         </nav>

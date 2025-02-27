@@ -1,89 +1,67 @@
 /* Estilos generales del Header */
 .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: transparent; /* Fondo transparente al inicio */
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-    padding: 20px 40px;
-  }
-  
-  /* Estilos cuando se hace scroll */
-  .scrolled {
-    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 10px 40px;
-  }
-  
-  /* Contenedor del Header */
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Logo */
-  .logo {
-    transition: width 0.3s ease-in-out;
-  }
-  
-  /* Navegación */
-  .navLinks {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navLinks li {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .navLinks a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
-  }
-  
-  .scrolled .navLinks a {
-    color: black; /* Cambia el color del texto al hacer scroll */
-  }
-  
-  .navLinks a:hover {
-    color: #8C4799; /* Morado del logo */
-  }
-  
-  /* Botón de Donaciones */
-  .donateButton {
-    background: #E0A438; /* Dorado del logo */
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-  
-  .donateButton:hover {
-    background: #d0902a;
-  }
-  
-  /* Responsive para móviles */
-  @media (max-width: 768px) {
-    .header {
-      padding: 15px 20px;
-    }
-  
-    .scrolled {
-      padding: 10px 20px;
-    }
-  
-    .navLinks {
-      display: none; /* Aquí podrías agregar un menú hamburguesa si lo deseas */
-    }
-  }
-  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Mantiene transparencia */
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 20px 40px;
+}
+
+/* Eliminamos el blur para que la imagen se vea completamente */
+.scrolled {
+  background: rgba(255, 255, 255, 0.3); /* Ligera opacidad al hacer scroll */
+  backdrop-filter: none; /* Eliminamos el desenfoque */
+  padding: 10px 40px;
+}
+
+/* Contenedor del Header */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contenedor del Logo y Texto */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estilos del Texto al Lado del Logo */
+.logoText {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--background-color);
+}
+
+/* Cuando se hace scroll, cambiamos el color del texto */
+.scrolled .logoText {
+  color: black;
+}
+
+/* Navegación */
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks li {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.scrolled .navLinks a {
+  color: black;
+}
