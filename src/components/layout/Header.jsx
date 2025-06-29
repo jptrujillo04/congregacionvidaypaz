@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/images/logo-vida-y-paz.png';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
     { title: 'Inicio', id: 'hero' },
     { title: 'Sobre Nosotros', id: 'about' },
@@ -27,15 +28,30 @@ const Header = () => {
             </a>
           ))}
         </div>
-        {/* Mobile Menu Button - can be implemented later */}
         <div className="md:hidden">
-          <button className="text-gray-300 hover:text-white">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
         </div>
       </nav>
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                onClick={() => setIsMenuOpen(false)} // Close menu on link click
+              >
+                {link.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
